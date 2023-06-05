@@ -19,14 +19,13 @@ public class TransactionOrderController {
 
     private static final Logger logger = LoggerFactory.getLogger(TransactionOrderController.class);
 
-    private static final AtomicInteger count = new AtomicInteger(0);
-
     private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    @PostMapping("/execute/hook")
-    public Response<String> executorControllerHook(@RequestBody Object param) {
+    @PostMapping("/execute/hook/async")
+    public Response<String> executorControllerAsyncHook(@RequestBody Object param) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
+        AtomicInteger count = new AtomicInteger(0);
         ExecutorsUtils.singleThreadPool().submit(new Runnable() {
             @Override
             public void run() {
@@ -44,6 +43,27 @@ public class TransactionOrderController {
                 }
             }
         });
+        return new Response<String>().success();
+    }
+
+    @PostMapping("/execute/hook/sync")
+    public Response<String> executorControllerHook(@RequestBody Object param) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        AtomicInteger count = new AtomicInteger(0);
+        while(count.get() <= 30) {
+            if (count.get() % 10 == 0) {
+                logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  当前count为：{}，执行时间：{}", count, sdf.format(calendar.getTime()));
+            }
+            count.getAndIncrement();
+            try {
+                Thread.sleep(1000);
+                System.out.println("=====================");
+            } catch (InterruptedException e) {
+                logger.error("线程休眠异常");
+                Thread.currentThread().interrupt();
+            }
+        }
         return new Response<String>().success();
     }
 }

@@ -1,8 +1,6 @@
 package org.gracefulshutdown.thread.async;
 
-import lombok.Data;
-import lombok.Getter;
-import org.gracefulshutdown.hook.TransactionMonitorHook;
+import org.gracefulshutdown.hook.ControllerMonitorHook;
 import org.gracefulshutdown.thread.util.ExecutorsUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +9,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -45,8 +42,8 @@ public class DataChangeCondition {
                     ExecutorsUtils.singleThreadPool().submit(new Runnable() {
                         @Override
                         public void run() {
-                            ReentrantLock hookLock = TransactionMonitorHook.hookLock;
-                            Condition hockCondition = TransactionMonitorHook.hookCondition;
+                            ReentrantLock hookLock = ControllerMonitorHook.hookLock;
+                            Condition hockCondition = ControllerMonitorHook.hookCondition;
                             hookLock.lock();
                             try {
                                 while (count.get() <= 60) {

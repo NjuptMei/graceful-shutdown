@@ -18,13 +18,13 @@ public class GracefulShutdownAspect {
      */
     private static final AtomicInteger REMAINING_REQUEST_NUM = new AtomicInteger(0);
 
-    @Before(value = "org.gracefulshutdown.annotation.ShutdownPointCut.executeShutdown()")
+    //@Before(value = "org.gracefulshutdown.annotation.ShutdownPointCut.executeShutdown()")
     public void shutdownBefore(JoinPoint joinPoint) {
         REMAINING_REQUEST_NUM.getAndIncrement();
         ControllerMonitorHook.count.getAndIncrement();
     }
 
-    @After(value = "org.gracefulshutdown.annotation.ShutdownPointCut.executeShutdown()")
+   // @After(value = "org.gracefulshutdown.annotation.ShutdownPointCut.executeShutdown()")
     public void shutdownAfter(JoinPoint joinPoint) {
         REMAINING_REQUEST_NUM.decrementAndGet();
         ControllerMonitorHook.count.decrementAndGet();

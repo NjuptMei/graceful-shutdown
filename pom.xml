@@ -86,7 +86,7 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <mainClass>org.gracefulshutdown.GracefulShutdownApplication</mainClass>
-                    <skip>true</skip>
+                    <skip>false</skip>
                 </configuration>
                 <executions>
                     <execution>

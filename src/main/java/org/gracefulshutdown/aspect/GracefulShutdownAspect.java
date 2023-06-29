@@ -34,4 +34,8 @@ public class GracefulShutdownAspect {
             }
         }
     }
+
+    public static AtomicInteger getActiveRequest() {
+        return REMAINING_REQUEST_NUM;
+    }
 }

@@ -1,4 +1,3 @@
-/*
 package org.gracefulshutdown.hook;
 
 import org.gracefulshutdown.aspect.GracefulShutdownAspect;
@@ -46,16 +45,13 @@ public class ControllerMonitorHook extends Thread {
 
     }
 
-    */
-/**
+    /**
      * 判断当前等待条件，在这里添加
      *
      * @return
-     *//*
-
+     */
     private boolean isAwait() {
         // 1. controller停机策略，当request请求结束后执行停机
         return GracefulShutdownAspect.getActiveRequest().get() != 0;
     }
 }
-*/

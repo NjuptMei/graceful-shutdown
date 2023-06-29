@@ -1,11 +1,27 @@
 package org.gracefulshutdown.service;
 
+import org.gracefulshutdown.thread.util.ExecutorsUtils;
+import org.junit.Test;
+
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
 import java.lang.management.ThreadMXBean;
 
 public class ShutdownTraceHelper {
+    @Test
     public void getThreadTaskTrace() {
+        ExecutorsUtils.singleThreadPool().submit(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 100; i++) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        });
         ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
         ThreadInfo[] threadInfos = threadMXBean.getThreadInfo(threadMXBean.getAllThreadIds(), Integer.MAX_VALUE);
 

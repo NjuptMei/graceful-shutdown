@@ -1,4 +1,4 @@
-package org.gracefulshutdown.annotation;
+package org.gracefulshutdown.aspect;
 
 import org.aspectj.lang.annotation.Pointcut;
 

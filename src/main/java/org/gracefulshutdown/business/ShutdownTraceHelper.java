@@ -138,14 +138,8 @@ public class ShutdownTraceHelper {
         for (ThreadInfo threadInfo : threadInfos) {
             String threadName = threadInfo.getThreadName();
             Thread.State threadState = threadInfo.getThreadState();
-            System.out.println("Thread Name: " + threadName);
-            System.out.println("Thread State: " + threadState);
-            // 根据线程名称或其他属性判断是否为线程池相关的线程
-            if (threadName.contains("pool") || threadName.contains("executor")) {
-                System.out.println("Thread Name: " + threadName);
-                System.out.println("Thread State: " + threadState);
-                // 可以根据需要打印其他线程信息
-            }
+            System.out.println("线程名称: " + threadName);
+            System.out.println("线程状态: " + threadState);
         }
     }
 }

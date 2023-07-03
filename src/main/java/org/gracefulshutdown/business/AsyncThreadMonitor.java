@@ -11,6 +11,7 @@ import org.springframework.util.StringUtils;
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
 import java.lang.management.ThreadMXBean;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -41,6 +42,6 @@ public class AsyncThreadMonitor {
     }
 
     public static Map<String, ThreadInfo[]> getAppThreadInfos() {
-
+        return new HashMap<>();
     }
 }

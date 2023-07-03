@@ -1,11 +1,14 @@
 package org.gracefulshutdown.controller;
 
+import org.gracefulshutdown.aspect.GracefulShutdownControllerAspect;
+import org.gracefulshutdown.business.ShutdownTraceHelper;
 import org.gracefulshutdown.common.RunStatusEnum;
 import org.gracefulshutdown.http.HttpConstant;
 import org.gracefulshutdown.http.Response;
 import org.gracefulshutdown.thread.util.ExecutorsUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,8 +27,6 @@ public class TransactionOrderController {
     private static final Logger logger = LoggerFactory.getLogger(TransactionOrderController.class);
 
     private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-    private static final String RUN_STATUS = "RUN_STATUS";
 
     @PostMapping("/execute/hook/async")
     public Response<String> executorControllerAsyncHook(@RequestBody Object param) {
@@ -79,16 +80,7 @@ public class TransactionOrderController {
     public Response<String> getAppRunStatus() {
         Response<String> response = new Response<>();
         try {
-            String[] command = {"/bin/bash", "-c", "source ~/.bashrc && echo $" + RUN_STATUS};
-            Process process = Runtime.getRuntime().exec(command);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            StringBuilder sb = new StringBuilder();
-            String runStatus;
-            while ((runStatus = reader.readLine()) != null) {
-                sb.append(runStatus);
-            }
-            process.waitFor();
-            runStatus = sb.toString();
+            String runStatus = ShutdownTraceHelper.getAppRunStatus();
             if (!StringUtils.hasText(runStatus)) {
                 logger.warn("当前未获取指定环境变量RUN_STATUS");
                 response.setResult(RunStatusEnum.UNKNOW.getStatus());
@@ -108,6 +100,18 @@ public class TransactionOrderController {
             response.setCode(HttpConstant.Code.INTERNAL_SERVER_ERROR);
             response.setResult(RunStatusEnum.UNKNOW.getStatus());
             response.setMsg("执行获取系统环境变量异常");
+        }
+        return response;
+    }
+
+    @GetMapping("/controller/status")
+    public Response<String> getControllerStatus() {
+        Response<String> response = new Response<>();
+        try {
+            Integer runRequestNum = GracefulShutdownControllerAspect.getActiveRequest().get();
+            // 向数据库中进行更新当前仍在运行的请求个数
+        } catch (Exception ee) {
+            logger.error("异常", ee);
         }
         return response;
     }

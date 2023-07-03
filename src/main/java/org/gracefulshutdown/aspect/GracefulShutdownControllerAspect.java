@@ -2,7 +2,6 @@ package org.gracefulshutdown.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.gracefulshutdown.hook.ControllerMonitorHook;
@@ -12,7 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Aspect
 @Component
-public class GracefulShutdownAspect {
+public class GracefulShutdownControllerAspect {
     /**
      * 当前处于活跃状态的请求
      */

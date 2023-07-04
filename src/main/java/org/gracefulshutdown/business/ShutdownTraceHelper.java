@@ -1,5 +1,6 @@
 package org.gracefulshutdown.business;
 
+import org.gracefulshutdown.hook.AsncThreadMonitorHook;
 import org.gracefulshutdown.thread.ThreadPoolMdcTrackTaskExcutor;
 import org.gracefulshutdown.thread.util.ExecutorsUtils;
 import org.junit.Test;
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.ClassPathScanningCandidateComponen
 import org.springframework.core.type.filter.AssignableTypeFilter;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.management.ManagementFactory;
@@ -18,6 +20,7 @@ import java.lang.management.ThreadMXBean;
 import java.util.concurrent.*;
 import java.util.function.Supplier;
 
+@Component
 public class ShutdownTraceHelper {
 
     private static final Logger logger = LoggerFactory.getLogger(ShutdownTraceHelper.class);
@@ -60,8 +63,8 @@ public class ShutdownTraceHelper {
         return runStatus;
     }
 
-    @Test
-    public void getThreadTaskTrace() {
+    @PostConstruct
+    public void getThreadTaskTrace() throws InterruptedException {
         // 1. 带名称的Executor框架执行类
         ExecutorsUtils.singleThreadPool().submit(new Runnable() {
             @Override
@@ -124,6 +127,18 @@ public class ShutdownTraceHelper {
                 }, "测试线程"
         ).start();
 
+        Thread BB =  new Thread(
+                () -> {
+                    for (int i = 0; i < 100; i++) {
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }, "测试NEW线程"
+        );
+
         // 5. stream流式异步
         CompletableFuture.supplyAsync(new Supplier<Object>() {
             @Override
@@ -131,15 +146,10 @@ public class ShutdownTraceHelper {
                 return null;
             }
         });
+    }
 
-        ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
-        ThreadInfo[] threadInfos = threadMXBean.getThreadInfo(threadMXBean.getAllThreadIds(), Integer.MAX_VALUE);
-
-        for (ThreadInfo threadInfo : threadInfos) {
-            String threadName = threadInfo.getThreadName();
-            Thread.State threadState = threadInfo.getThreadState();
-            System.out.println("线程名称: " + threadName);
-            System.out.println("线程状态: " + threadState);
-        }
+    @Test
+    public void testaa() {
+        ExecutorsUtils.singleThreadPool().submit(new AsncThreadMonitorHook());
     }
 }

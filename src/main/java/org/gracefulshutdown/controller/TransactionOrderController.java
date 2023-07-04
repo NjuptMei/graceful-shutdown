@@ -3,6 +3,7 @@ package org.gracefulshutdown.controller;
 import org.gracefulshutdown.aspect.GracefulShutdownControllerAspect;
 import org.gracefulshutdown.business.ShutdownTraceHelper;
 import org.gracefulshutdown.common.RunStatusEnum;
+import org.gracefulshutdown.hook.AsncThreadMonitorHook;
 import org.gracefulshutdown.http.HttpConstant;
 import org.gracefulshutdown.http.Response;
 import org.gracefulshutdown.thread.util.ExecutorsUtils;
@@ -109,6 +110,19 @@ public class TransactionOrderController {
         Response<String> response = new Response<>();
         try {
             Integer runRequestNum = GracefulShutdownControllerAspect.getActiveRequest().get();
+            // 向数据库中进行更新当前仍在运行的请求个数
+        } catch (Exception ee) {
+            logger.error("异常", ee);
+        }
+        return response;
+    }
+
+    @GetMapping("/async/status")
+    public Response<String> getAsyncStatus() {
+        Response<String> response = new Response<>();
+        try {
+            AsncThreadMonitorHook monitorHook = new AsncThreadMonitorHook();
+            monitorHook.run();
             // 向数据库中进行更新当前仍在运行的请求个数
         } catch (Exception ee) {
             logger.error("异常", ee);

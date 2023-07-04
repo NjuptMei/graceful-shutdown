@@ -10,5 +10,8 @@ public class ApplicationHookInitial {
     @PostConstruct
     public void addCusomHook() {
         Runtime.getRuntime().addShutdownHook(new ControllerMonitorHook());
+        Runtime.getRuntime().addShutdownHook(new AsncThreadMonitorHook());
     }
+
+
 }

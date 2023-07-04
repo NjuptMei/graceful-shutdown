@@ -187,3 +187,1187 @@
 2023-06-27 19:49:47.471 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.controller.TransactionOrderController [57] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  当前count为：30，执行时间：2023-06-27 19:49:17
 2023-06-27 19:49:48.578 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
 2023-06-27 19:49:48.589 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 10:38:56.225 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 1608 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 10:38:56.230 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 10:38:57.848 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 10:38:57.861 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 10:38:57.862 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 10:38:57.863 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 10:38:57.986 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 10:38:57.986 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1682 ms
+2023-07-04 10:39:02.295 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 10:39:02.588 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 10:39:02.616 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 10:39:02.628 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 7.446 seconds (JVM running for 9.186)
+2023-07-04 10:39:23.022 |-INFO  [Thread-8] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 10:39:23
+2023-07-04 10:39:23.024 |-INFO  [Thread-8] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 10:39:23
+2023-07-04 10:39:23.025 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 10:39:23.029 |-ERROR [Thread-9] org.gracefulshutdown.business.ShutdownTraceHelper [60] -|  获取环境变量中app运行状态异常
+java.io.IOException: Cannot run program "/bin/bash": CreateProcess error=2, 系统找不到指定的文件。
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at java.lang.Runtime.exec(Runtime.java:485)
+	at org.gracefulshutdown.business.ShutdownTraceHelper.getAppRunStatus(ShutdownTraceHelper.java:51)
+	at org.gracefulshutdown.business.AsyncThreadMonitor.getThreadSnapshot(AsyncThreadMonitor.java:36)
+	at org.gracefulshutdown.hook.AsncThreadMonitorHook.run(AsncThreadMonitorHook.java:27)
+Caused by: java.io.IOException: CreateProcess error=2, 系统找不到指定的文件。
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	... 5 common frames omitted
+2023-07-04 10:39:23.030 |-ERROR [Thread-9] org.gracefulshutdown.hook.AsncThreadMonitorHook [30] -|  异步停机执行异常
+java.lang.IllegalMonitorStateException: null
+	at java.util.concurrent.locks.ReentrantLock$Sync.tryRelease(ReentrantLock.java:151)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.release(AbstractQueuedSynchronizer.java:1261)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.fullyRelease(AbstractQueuedSynchronizer.java:1723)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2036)
+	at org.gracefulshutdown.hook.AsncThreadMonitorHook.run(AsncThreadMonitorHook.java:28)
+2023-07-04 10:39:23.701 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 10:39:23.756 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 10:46:45.459 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 22168 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 10:46:45.468 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 10:46:47.228 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 10:46:47.241 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 10:46:47.242 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 10:46:47.243 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 10:46:47.354 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 10:46:47.354 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1822 ms
+2023-07-04 10:46:47.700 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 10:46:47.900 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 10:46:47.930 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 10:46:47.942 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 3.153 seconds (JVM running for 4.73)
+2023-07-04 10:46:57.447 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 10:46:57
+2023-07-04 10:46:57.451 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 10:46:57
+2023-07-04 10:46:57.454 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 10:46:57.457 |-ERROR [Thread-7] org.gracefulshutdown.business.ShutdownTraceHelper [60] -|  获取环境变量中app运行状态异常
+java.io.IOException: Cannot run program "/bin/bash": CreateProcess error=2, 系统找不到指定的文件。
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at java.lang.Runtime.exec(Runtime.java:485)
+	at org.gracefulshutdown.business.ShutdownTraceHelper.getAppRunStatus(ShutdownTraceHelper.java:51)
+	at org.gracefulshutdown.business.AsyncThreadMonitor.getThreadSnapshot(AsyncThreadMonitor.java:36)
+	at org.gracefulshutdown.hook.AsncThreadMonitorHook.run(AsncThreadMonitorHook.java:27)
+Caused by: java.io.IOException: CreateProcess error=2, 系统找不到指定的文件。
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	... 5 common frames omitted
+2023-07-04 10:46:57.458 |-ERROR [Thread-7] org.gracefulshutdown.hook.AsncThreadMonitorHook [30] -|  异步停机执行异常
+java.lang.IllegalMonitorStateException: null
+	at java.util.concurrent.locks.ReentrantLock$Sync.tryRelease(ReentrantLock.java:151)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.release(AbstractQueuedSynchronizer.java:1261)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.fullyRelease(AbstractQueuedSynchronizer.java:1723)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2036)
+	at org.gracefulshutdown.hook.AsncThreadMonitorHook.run(AsncThreadMonitorHook.java:28)
+2023-07-04 10:46:58.019 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 10:46:58.068 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 10:47:47.031 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 25432 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 10:47:47.038 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 10:47:48.559 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 10:47:48.570 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 10:47:48.571 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 10:47:48.571 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 10:47:48.694 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 10:47:48.695 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1587 ms
+2023-07-04 10:47:49.195 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 10:47:49.405 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 10:47:49.434 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 10:47:49.445 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 3.03 seconds (JVM running for 4.71)
+2023-07-04 10:47:50.947 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 10:47:50
+2023-07-04 10:47:50.953 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 10:47:50
+2023-07-04 10:47:50.953 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 10:47:50.959 |-ERROR [Thread-8] org.gracefulshutdown.hook.AsncThreadMonitorHook [30] -|  异步停机执行异常
+java.lang.IllegalMonitorStateException: null
+	at java.util.concurrent.locks.ReentrantLock$Sync.tryRelease(ReentrantLock.java:151)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.release(AbstractQueuedSynchronizer.java:1261)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.fullyRelease(AbstractQueuedSynchronizer.java:1723)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2036)
+	at org.gracefulshutdown.hook.AsncThreadMonitorHook.run(AsncThreadMonitorHook.java:28)
+2023-07-04 10:47:51.503 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 10:47:51.556 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 10:48:30.192 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 11268 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 10:48:30.198 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 10:48:31.468 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 10:48:31.478 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 10:48:31.479 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 10:48:31.481 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 10:48:31.594 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 10:48:31.594 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1322 ms
+2023-07-04 10:48:31.906 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 10:48:32.092 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 10:48:32.117 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 10:48:32.128 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.573 seconds (JVM running for 4.225)
+2023-07-04 10:48:33.332 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 10:48:33
+2023-07-04 10:48:33.337 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 10:48:33
+2023-07-04 10:48:33.339 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 10:48:33.344 |-ERROR [Thread-7] org.gracefulshutdown.hook.AsncThreadMonitorHook [30] -|  异步停机执行异常
+java.lang.IllegalMonitorStateException: null
+	at java.util.concurrent.locks.ReentrantLock$Sync.tryRelease(ReentrantLock.java:151)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.release(AbstractQueuedSynchronizer.java:1261)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.fullyRelease(AbstractQueuedSynchronizer.java:1723)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2036)
+	at org.gracefulshutdown.hook.AsncThreadMonitorHook.run(AsncThreadMonitorHook.java:28)
+2023-07-04 10:48:33.826 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 10:48:33.875 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 10:49:52.002 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 22664 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 10:49:52.008 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 10:49:53.151 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 10:49:53.163 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 10:49:53.165 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 10:49:53.166 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 10:49:53.271 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 10:49:53.271 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1192 ms
+2023-07-04 10:49:53.600 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 10:49:53.778 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 10:49:53.804 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 10:49:53.815 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.442 seconds (JVM running for 4.091)
+2023-07-04 10:49:54.720 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 10:49:54
+2023-07-04 10:49:54.723 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 10:49:54
+2023-07-04 10:49:54.724 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 10:49:54.725 |-ERROR [Thread-7] org.gracefulshutdown.hook.AsncThreadMonitorHook [30] -|  异步停机执行异常
+java.lang.IllegalMonitorStateException: null
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.signal(AbstractQueuedSynchronizer.java:1939)
+	at org.gracefulshutdown.business.AsyncThreadMonitor.getThreadSnapshot(AsyncThreadMonitor.java:52)
+	at org.gracefulshutdown.hook.AsncThreadMonitorHook.run(AsncThreadMonitorHook.java:27)
+2023-07-04 10:49:55.246 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 10:49:55.309 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 10:51:45.599 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 11928 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 10:51:45.605 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 10:51:46.752 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 10:51:46.763 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 10:51:46.764 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 10:51:46.764 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 10:51:46.870 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 10:51:46.870 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1185 ms
+2023-07-04 10:51:47.189 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 10:51:47.365 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 10:51:47.389 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 10:51:47.400 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.493 seconds (JVM running for 4.379)
+2023-07-04 10:51:48.542 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 10:51:48
+2023-07-04 10:51:48.545 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 10:51:48
+2023-07-04 10:51:48.546 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 10:51:49.100 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 10:51:49.151 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 10:53:01.265 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 20600 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 10:53:01.272 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 10:53:02.374 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 10:53:02.384 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 10:53:02.384 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 10:53:02.384 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 10:53:02.488 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 10:53:02.488 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1154 ms
+2023-07-04 10:53:02.834 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 10:53:03.034 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 10:53:03.069 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 10:53:03.082 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.359 seconds (JVM running for 3.748)
+2023-07-04 10:53:11.641 |-INFO  [Thread-5] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 10:53:11
+2023-07-04 10:53:11.646 |-INFO  [Thread-5] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 10:53:11
+2023-07-04 10:53:11.648 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 10:53:12.182 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 10:53:12.232 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:01:16.206 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 14296 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:01:16.215 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:01:17.617 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:01:17.631 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:01:17.632 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:01:17.633 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:01:17.763 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:01:17.763 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1470 ms
+2023-07-04 11:01:18.082 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:01:18.281 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:01:18.314 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:01:18.327 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.891 seconds (JVM running for 4.637)
+2023-07-04 11:01:20.428 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:01:20
+2023-07-04 11:01:20.433 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:01:20
+2023-07-04 11:01:20.434 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 11:01:20.977 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 11:01:21.034 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:05:00.544 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 26516 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:05:00.550 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:05:01.823 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:05:01.833 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:05:01.834 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:05:01.834 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:05:01.961 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:05:01.961 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1335 ms
+2023-07-04 11:05:02.297 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:05:02.480 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:05:02.507 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:05:02.517 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.724 seconds (JVM running for 4.482)
+2023-07-04 11:05:05.058 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:05:05
+2023-07-04 11:05:05.061 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:05:05
+2023-07-04 11:05:05.062 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 11:05:05.555 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 11:05:05.603 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:05:59.103 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 11164 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:05:59.108 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:06:00.218 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:06:00.228 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:06:00.229 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:06:00.229 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:06:00.343 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:06:00.344 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1168 ms
+2023-07-04 11:06:00.671 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:06:00.861 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:06:00.894 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:06:00.906 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.361 seconds (JVM running for 3.679)
+2023-07-04 11:06:03.888 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:06:03
+2023-07-04 11:06:03.892 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:06:03
+2023-07-04 11:06:03.893 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 11:06:04.426 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 11:06:04.475 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:07:04.061 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 8220 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:07:04.067 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:07:05.236 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:07:05.246 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:07:05.247 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:07:05.247 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:07:05.367 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:07:05.367 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1231 ms
+2023-07-04 11:07:05.676 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:07:05.858 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:07:05.885 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:07:05.895 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.555 seconds (JVM running for 4.174)
+2023-07-04 11:07:06.935 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:07:06
+2023-07-04 11:07:06.937 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:07:06
+2023-07-04 11:07:06.938 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 11:07:07.409 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 11:07:07.456 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:07:31.406 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 13296 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:07:31.412 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:07:32.550 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:07:32.560 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:07:32.561 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:07:32.562 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:07:32.668 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:07:32.669 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1192 ms
+2023-07-04 11:07:32.970 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:07:33.151 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:07:33.177 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:07:33.187 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.49 seconds (JVM running for 4.056)
+2023-07-04 11:07:34.543 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:07:34
+2023-07-04 11:07:34.546 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:07:34
+2023-07-04 11:07:34.548 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 11:07:35.041 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 11:07:35.090 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:09:30.994 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 14108 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:09:30.999 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:09:32.476 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:09:32.485 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:09:32.486 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:09:32.487 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:09:32.602 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:09:32.602 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1524 ms
+2023-07-04 11:09:32.992 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:09:33.191 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:09:33.222 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:09:33.234 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 3.017 seconds (JVM running for 4.853)
+2023-07-04 11:09:35.284 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:09:35
+2023-07-04 11:09:35.288 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:09:35
+2023-07-04 11:09:35.289 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 11:09:35.811 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 11:09:35.859 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:09:51.429 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 25768 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:09:51.434 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:09:52.520 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:09:52.529 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:09:52.530 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:09:52.530 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:09:52.640 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:09:52.641 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1140 ms
+2023-07-04 11:09:52.976 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:09:53.187 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:09:53.214 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:09:53.224 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.435 seconds (JVM running for 3.824)
+2023-07-04 11:10:04.736 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:10:04
+2023-07-04 11:10:04.740 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:10:04
+2023-07-04 11:10:04.742 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 11:10:05.260 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 11:10:05.321 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:11:43.995 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 25448 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:11:44.002 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:11:45.593 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:11:45.601 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:11:45.602 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:11:45.603 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:11:45.705 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:11:45.705 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1625 ms
+2023-07-04 11:11:46.058 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:11:46.302 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:11:46.332 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:11:46.341 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 3.231 seconds (JVM running for 5.129)
+2023-07-04 11:11:47.346 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:11:47
+2023-07-04 11:11:47.349 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:11:47
+2023-07-04 11:11:47.350 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 11:11:47.869 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 11:11:47.919 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:14:29.695 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 27292 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:14:29.702 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:14:30.846 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:14:30.855 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:14:30.856 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:14:30.857 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:14:30.982 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:14:30.982 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1219 ms
+2023-07-04 11:14:31.300 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:14:31.514 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:14:31.544 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:14:31.555 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.428 seconds (JVM running for 3.734)
+2023-07-04 11:14:32.654 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:14:32
+2023-07-04 11:14:32.655 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:14:32
+2023-07-04 11:14:32.655 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 11:14:33.230 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 11:14:33.279 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:18:07.903 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 13988 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:18:07.908 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:18:09.061 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:18:09.071 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:18:09.072 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:18:09.073 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:18:09.198 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:18:09.198 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1223 ms
+2023-07-04 11:18:09.523 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:18:09.717 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:18:09.748 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:18:09.758 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.506 seconds (JVM running for 4.148)
+2023-07-04 11:18:11.975 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:18:11
+2023-07-04 11:18:11.980 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:18:11
+2023-07-04 11:18:11.982 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 11:18:12.546 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 11:18:12.603 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:18:39.804 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 23632 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:18:39.809 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:18:40.969 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:18:40.979 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:18:40.980 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:18:40.980 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:18:41.099 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:18:41.100 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1231 ms
+2023-07-04 11:18:41.464 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:18:41.665 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:18:41.696 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:18:41.710 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.514 seconds (JVM running for 3.932)
+2023-07-04 11:18:43.220 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 11:18:43.739 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 11:18:43.789 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:22:58.957 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 27472 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:22:58.965 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:23:00.431 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:23:00.447 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:23:00.448 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:23:00.449 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:23:00.557 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:23:00.558 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1512 ms
+2023-07-04 11:23:00.858 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:23:01.042 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:23:01.070 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:23:01.082 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.852 seconds (JVM running for 4.42)
+2023-07-04 11:23:04.314 |-INFO  [Thread-5] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:23:04
+2023-07-04 11:23:04.321 |-INFO  [SpringContextShutdownHook] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [53] -|  Commencing graceful shutdown. Waiting for active requests to complete
+2023-07-04 11:23:04.321 |-INFO  [Thread-5] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:23:04
+2023-07-04 11:23:04.830 |-INFO  [tomcat-shutdown] org.springframework.boot.web.embedded.tomcat.GracefulShutdown [78] -|  Graceful shutdown complete
+2023-07-04 11:23:04.893 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:24:18.907 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 5008 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:24:18.913 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:24:20.256 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:24:20.268 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:24:20.269 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:24:20.270 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:24:20.385 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:24:20.386 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1398 ms
+2023-07-04 11:24:20.717 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:24:20.927 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:24:20.959 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:24:20.970 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.87 seconds (JVM running for 4.43)
+2023-07-04 11:24:22.786 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:24:22
+2023-07-04 11:24:22.791 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:24:22
+2023-07-04 11:24:23.298 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:26:18.885 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 15412 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:26:18.890 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:26:20.096 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:26:20.106 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:26:20.107 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:26:20.108 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:26:20.213 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:26:20.214 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1268 ms
+2023-07-04 11:26:20.560 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:26:20.756 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:26:20.783 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:26:20.794 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.477 seconds (JVM running for 4.086)
+2023-07-04 11:26:21.222 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:26:21
+2023-07-04 11:26:21.224 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:26:21
+2023-07-04 11:26:21.739 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:28:44.330 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 14032 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:28:44.336 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:28:45.649 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:28:45.659 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:28:45.661 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:28:45.661 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:28:45.781 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:28:45.781 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1364 ms
+2023-07-04 11:28:46.104 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:28:46.282 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:28:46.307 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:28:46.318 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.767 seconds (JVM running for 4.407)
+2023-07-04 11:28:47.966 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:28:47
+2023-07-04 11:28:47.972 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:28:47
+2023-07-04 11:28:48.571 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:33:10.675 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 24852 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:33:10.681 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:33:12.017 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:33:12.026 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:33:12.027 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:33:12.028 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:33:12.131 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:33:12.132 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1376 ms
+2023-07-04 11:33:12.430 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:33:12.617 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:33:12.650 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:33:12.662 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.792 seconds (JVM running for 4.51)
+2023-07-04 11:33:13.660 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:33:13
+2023-07-04 11:33:13.666 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:33:13
+2023-07-04 11:33:14.210 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:33:45.823 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 3996 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:33:45.830 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:33:47.017 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:33:47.027 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:33:47.028 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:33:47.028 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:33:47.146 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:33:47.147 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1242 ms
+2023-07-04 11:33:47.453 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:33:47.637 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:33:47.665 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:33:47.675 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.402 seconds (JVM running for 3.882)
+2023-07-04 11:33:48.771 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:33:48
+2023-07-04 11:33:48.773 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:33:48
+2023-07-04 11:33:49.314 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:34:14.036 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 22748 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:34:14.043 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:34:15.230 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:34:15.240 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:34:15.241 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:34:15.242 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:34:15.366 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:34:15.366 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1259 ms
+2023-07-04 11:34:15.686 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:34:15.869 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:34:15.895 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:34:15.905 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.624 seconds (JVM running for 4.308)
+2023-07-04 11:34:17.635 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:34:17
+2023-07-04 11:34:17.638 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:34:17
+2023-07-04 11:34:18.160 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:37:41.039 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 2928 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:37:41.045 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:37:42.228 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:37:42.239 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:37:42.240 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:37:42.241 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:37:42.362 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:37:42.362 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1248 ms
+2023-07-04 11:37:42.667 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:37:42.843 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:37:42.873 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:37:42.884 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.493 seconds (JVM running for 4.372)
+2023-07-04 11:37:44.498 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:37:44
+2023-07-04 11:37:44.498 |-INFO  [Thread-7] org.gracefulshutdown.hook.AsncThreadMonitorHook [45] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:37:44
+2023-07-04 11:37:44.502 |-INFO  [Thread-7] org.gracefulshutdown.hook.AsncThreadMonitorHook [47] -|  当前需进行等待
+2023-07-04 11:37:44.502 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:37:44
+2023-07-04 11:37:44.986 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:38:59.348 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 4444 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 11:38:59.355 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 11:39:00.726 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 11:39:00.738 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:39:00.739 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 11:39:00.740 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 11:39:00.862 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 11:39:00.862 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1419 ms
+2023-07-04 11:39:01.223 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 11:39:01.454 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 11:39:01.486 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 11:39:01.498 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.9 seconds (JVM running for 4.702)
+2023-07-04 11:39:03.415 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 11:39:03
+2023-07-04 11:39:03.420 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 11:39:03
+2023-07-04 11:39:03.923 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 12:15:59.410 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 23136 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 12:15:59.416 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 12:16:00.709 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 12:16:00.718 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 12:16:00.719 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 12:16:00.719 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 12:16:00.826 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 12:16:00.827 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1338 ms
+2023-07-04 12:16:01.138 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 12:16:01.316 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 12:16:01.342 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 12:16:01.352 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.838 seconds (JVM running for 4.659)
+2023-07-04 12:16:03.285 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 12:16:03
+2023-07-04 12:16:03.288 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 12:16:03
+2023-07-04 12:16:03.297 |-ERROR [ThreadPoolId-4929ae70-b4ea-4323-86c6-35103eea6552 | 单线程池singleThreadPool-线程thread-3] org.gracefulshutdown.business.AsyncThreadMonitor [84] -|  执行唤醒异常
+java.lang.IllegalMonitorStateException: null
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.signal(AbstractQueuedSynchronizer.java:1939)
+	at org.gracefulshutdown.business.AsyncThreadMonitor.run(AsyncThreadMonitor.java:82)
+	at org.gracefulshutdown.thread.util.ThreadMdcUtil.lambda$wrap$1(ThreadMdcUtil.java:40)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at org.gracefulshutdown.thread.util.ThreadMdcUtil.lambda$wrap$1(ThreadMdcUtil.java:40)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+2023-07-04 12:16:03.822 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 12:16:35.488 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 16800 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 12:16:35.493 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 12:16:36.629 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 12:16:36.638 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 12:16:36.639 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 12:16:36.639 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 12:16:36.748 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 12:16:36.748 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1188 ms
+2023-07-04 12:16:37.063 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 12:16:37.253 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 12:16:37.284 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 12:16:37.298 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.464 seconds (JVM running for 4.026)
+2023-07-04 12:16:41.649 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 12:16:41
+2023-07-04 12:16:41.655 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 12:16:41
+2023-07-04 12:16:41.663 |-ERROR [ThreadPoolId-d9d1f616-b916-43ae-81ad-ead4ffba64bb | 单线程池singleThreadPool-线程thread-3] org.gracefulshutdown.business.AsyncThreadMonitor [84] -|  执行唤醒异常
+java.lang.IllegalMonitorStateException: null
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.signal(AbstractQueuedSynchronizer.java:1939)
+	at org.gracefulshutdown.business.AsyncThreadMonitor.run(AsyncThreadMonitor.java:82)
+	at org.gracefulshutdown.thread.util.ThreadMdcUtil.lambda$wrap$1(ThreadMdcUtil.java:40)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at org.gracefulshutdown.thread.util.ThreadMdcUtil.lambda$wrap$1(ThreadMdcUtil.java:40)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+2023-07-04 12:16:42.190 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 12:17:52.379 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 24048 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 12:17:52.383 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 12:17:53.543 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 12:17:53.555 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 12:17:53.556 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 12:17:53.557 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 12:17:53.673 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 12:17:53.673 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1227 ms
+2023-07-04 12:17:54.068 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 12:17:54.312 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 12:17:54.344 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 12:17:54.356 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.531 seconds (JVM running for 3.81)
+2023-07-04 12:18:31.303 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 12:18:31
+2023-07-04 12:18:31.309 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 12:18:31
+2023-07-04 12:18:31.316 |-ERROR [ThreadPoolId-992ce29c-b4ac-4cba-b4d7-86f242f66ffb | 单线程池singleThreadPool-线程thread-3] org.gracefulshutdown.business.AsyncThreadMonitor [89] -|  执行唤醒异常
+java.lang.IllegalMonitorStateException: null
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.signal(AbstractQueuedSynchronizer.java:1939)
+	at org.gracefulshutdown.business.AsyncThreadMonitor.run(AsyncThreadMonitor.java:87)
+	at org.gracefulshutdown.thread.util.ThreadMdcUtil.lambda$wrap$1(ThreadMdcUtil.java:40)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at org.gracefulshutdown.thread.util.ThreadMdcUtil.lambda$wrap$1(ThreadMdcUtil.java:40)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+2023-07-04 12:18:31.885 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 12:19:53.525 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 9408 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 12:19:53.532 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 12:19:55.161 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 12:19:55.515 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1917 ms
+2023-07-04 12:19:55.755 |-WARN  [main] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [559] -|  Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'applicationHookInitial': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Shutdown in progress
+2023-07-04 12:20:04.262 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 23084 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 12:20:04.266 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 12:20:05.466 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 12:20:05.475 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 12:20:05.476 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 12:20:05.476 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 12:20:05.586 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 12:20:05.587 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1255 ms
+2023-07-04 12:20:05.889 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 12:20:06.073 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 12:20:06.100 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 12:20:06.111 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.415 seconds (JVM running for 3.879)
+2023-07-04 12:20:08.163 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 12:20:08
+2023-07-04 12:20:08.168 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 12:20:08
+2023-07-04 12:20:08.173 |-ERROR [ThreadPoolId-192e5b63-95cc-4cea-b5d6-12c50f890011 | 单线程池singleThreadPool-线程thread-3] org.gracefulshutdown.business.AsyncThreadMonitor [89] -|  执行唤醒异常
+java.lang.IllegalMonitorStateException: null
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.signal(AbstractQueuedSynchronizer.java:1939)
+	at org.gracefulshutdown.business.AsyncThreadMonitor.run(AsyncThreadMonitor.java:87)
+	at org.gracefulshutdown.thread.util.ThreadMdcUtil.lambda$wrap$1(ThreadMdcUtil.java:40)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at org.gracefulshutdown.thread.util.ThreadMdcUtil.lambda$wrap$1(ThreadMdcUtil.java:40)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+2023-07-04 12:20:08.821 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 13:55:21.240 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 26796 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 13:55:21.245 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 13:55:22.560 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 13:55:22.573 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 13:55:22.574 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 13:55:22.575 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 13:55:22.700 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 13:55:22.700 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1380 ms
+2023-07-04 13:55:23.021 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 13:55:23.344 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 13:55:23.370 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 13:55:23.379 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.706 seconds (JVM running for 4.406)
+2023-07-04 13:55:25.433 |-INFO  [Thread-4] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 13:55:25
+2023-07-04 13:55:25.438 |-INFO  [Thread-4] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 13:55:25
+2023-07-04 13:55:25.987 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 14:39:42.006 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 19824 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 14:39:42.011 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 14:39:43.493 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 14:39:43.503 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 14:39:43.504 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 14:39:43.505 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 14:39:43.655 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 14:39:43.656 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1591 ms
+2023-07-04 14:39:43.997 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 14:39:44.210 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 14:39:44.237 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 14:39:44.249 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.806 seconds (JVM running for 5.033)
+2023-07-04 14:40:02.033 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 14:40:02
+2023-07-04 14:40:02.032 |-INFO  [Thread-8] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 14:40:02
+2023-07-04 14:40:02.038 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 14:40:02
+2023-07-04 14:40:02.574 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 14:40:12.058 |-INFO  [Thread-8] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 14:40:12
+2023-07-04 14:52:00.992 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 3656 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 14:52:00.998 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 14:52:02.100 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 14:52:02.110 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 14:52:02.111 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 14:52:02.111 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 14:52:02.220 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 14:52:02.220 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1149 ms
+2023-07-04 14:52:02.544 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 14:52:02.723 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 14:52:02.749 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 14:52:02.759 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.373 seconds (JVM running for 4.548)
+2023-07-04 14:52:05.610 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 14:52:05
+2023-07-04 14:52:05.610 |-INFO  [Thread-7] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 14:52:05
+2023-07-04 14:52:05.615 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 14:52:05
+2023-07-04 14:52:06.199 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-04 14:52:15.621 |-INFO  [Thread-7] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 14:52:15
+2023-07-04 15:15:01.842 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 17244 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 15:15:01.851 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 15:15:03.620 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 15:15:03.632 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 15:15:03.633 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 15:15:03.634 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 15:15:03.742 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 15:15:03.742 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1794 ms
+2023-07-04 15:15:04.212 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 15:15:04.458 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 15:15:04.490 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 15:15:04.503 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 3.469 seconds (JVM running for 5.398)
+2023-07-04 15:16:18.488 |-INFO  [http-nio-8848-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 15:16:18.489 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [525] -|  Initializing Servlet 'dispatcherServlet'
+2023-07-04 15:16:18.499 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [547] -|  Completed initialization in 10 ms
+2023-07-04 15:16:36.706 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 15:16:36
+2023-07-04 15:38:03.434 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 15:38:03
+2023-07-04 15:38:21.104 |-INFO  [http-nio-8848-exec-2] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 15:38:21
+2023-07-04 15:40:17.908 |-INFO  [Thread-8] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 15:40:17
+2023-07-04 15:40:17.909 |-INFO  [Thread-8] org.gracefulshutdown.hook.ControllerMonitorHook [35] -|  当前需进行等待
+2023-07-04 15:40:26.769 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 18292 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 15:40:26.774 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 15:40:28.374 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 15:40:28.387 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 15:40:28.388 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 15:40:28.389 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 15:40:28.519 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 15:40:28.520 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1668 ms
+2023-07-04 15:40:28.900 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 15:40:29.131 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 15:40:29.156 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 15:40:29.164 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 3.152 seconds (JVM running for 5.289)
+2023-07-04 15:42:17.353 |-INFO  [http-nio-8848-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 15:42:17.353 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [525] -|  Initializing Servlet 'dispatcherServlet'
+2023-07-04 15:42:17.367 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [547] -|  Completed initialization in 13 ms
+2023-07-04 15:42:19.593 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 15:42:19
+2023-07-04 15:43:47.861 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 15:43:47
+2023-07-04 16:03:08.479 |-INFO  [http-nio-8848-exec-4] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 16:03:08
+2023-07-04 16:10:29.498 |-INFO  [http-nio-8848-exec-4] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 16:10:29
+2023-07-04 16:11:29.618 |-INFO  [http-nio-8848-exec-3] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 16:11:29
+2023-07-04 16:20:19.615 |-INFO  [http-nio-8848-exec-3] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 16:20:19
+2023-07-04 16:22:48.804 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 16:22:48
+2023-07-04 16:22:48.804 |-INFO  [Thread-8] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 16:22:48
+2023-07-04 16:22:48.805 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 16:22:48
+2023-07-04 16:22:55.677 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 16420 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 16:22:55.682 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 16:22:57.316 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 16:22:57.334 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 16:22:57.335 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 16:22:57.335 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 16:22:57.494 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 16:22:57.494 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1744 ms
+2023-07-04 16:22:57.885 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 16:22:58.102 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 16:22:58.132 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 16:22:58.141 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 3.191 seconds (JVM running for 5.694)
+2023-07-04 16:23:02.078 |-INFO  [http-nio-8848-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 16:23:02.079 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [525] -|  Initializing Servlet 'dispatcherServlet'
+2023-07-04 16:23:02.088 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [547] -|  Completed initialization in 9 ms
+2023-07-04 16:23:03.924 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 16:23:03
+2023-07-04 16:23:41.344 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 16:23:41
+2023-07-04 16:31:06.469 |-INFO  [Thread-8] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 16:31:06
+2023-07-04 16:31:06.469 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 16:31:06
+2023-07-04 16:31:06.469 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 16:31:06
+2023-07-04 16:31:14.207 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 18268 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 16:31:14.213 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 16:31:15.290 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 16:31:15.300 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 16:31:15.301 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 16:31:15.302 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 16:31:15.409 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 16:31:15.409 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1133 ms
+2023-07-04 16:31:15.723 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 16:31:15.908 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 16:31:15.936 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 16:31:15.948 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.324 seconds (JVM running for 3.725)
+2023-07-04 16:31:19.429 |-INFO  [http-nio-8848-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 16:31:19.430 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [525] -|  Initializing Servlet 'dispatcherServlet'
+2023-07-04 16:31:19.456 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [547] -|  Completed initialization in 25 ms
+2023-07-04 16:31:20.960 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 16:31:20
+2023-07-04 16:31:33.820 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 16:31:33
+2023-07-04 16:32:55.576 |-INFO  [Thread-7] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 16:32:55
+2023-07-04 16:32:55.576 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 16:32:55
+2023-07-04 16:32:55.577 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 16:32:55
+2023-07-04 16:33:05.160 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 2024 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 16:33:05.166 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 16:33:06.890 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 16:33:06.900 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 16:33:06.901 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 16:33:06.902 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 16:33:07.029 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 16:33:07.029 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1786 ms
+2023-07-04 16:33:10.467 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 16:33:10.683 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 16:33:10.708 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 16:33:10.718 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 6.571 seconds (JVM running for 8.612)
+2023-07-04 16:33:22.247 |-INFO  [Thread-9] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 16:33:22
+2023-07-04 16:33:22.246 |-INFO  [Thread-8] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 16:33:22
+2023-07-04 16:33:22.249 |-INFO  [Thread-8] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 16:33:22
+2023-07-04 16:33:37.678 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 16712 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 16:33:37.685 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 16:33:38.959 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 16:33:38.968 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 16:33:38.969 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 16:33:38.969 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 16:33:39.079 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 16:33:39.079 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1296 ms
+2023-07-04 16:33:51.880 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 16:33:52.073 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 16:33:52.102 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 16:33:52.112 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 15.126 seconds (JVM running for 16.631)
+2023-07-04 16:33:58.013 |-INFO  [http-nio-8848-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 16:33:58.013 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [525] -|  Initializing Servlet 'dispatcherServlet'
+2023-07-04 16:33:58.026 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [547] -|  Completed initialization in 12 ms
+2023-07-04 16:34:00.477 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 16:34:00
+2023-07-04 16:34:14.014 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 16:34:14
+2023-07-04 16:36:05.411 |-INFO  [Thread-13] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 16:36:05
+2023-07-04 16:36:05.411 |-INFO  [Thread-12] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 16:36:05
+2023-07-04 16:36:05.411 |-INFO  [Thread-12] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 16:36:05
+2023-07-04 16:36:14.059 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 10264 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 16:36:14.065 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 16:36:15.199 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 16:36:15.211 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 16:36:15.212 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 16:36:15.212 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 16:36:15.322 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 16:36:15.322 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1181 ms
+2023-07-04 16:36:23.190 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 16:36:23.420 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 16:36:23.452 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 16:36:23.462 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 10.063 seconds (JVM running for 11.795)
+2023-07-04 16:36:28.027 |-INFO  [http-nio-8848-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 16:36:28.027 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [525] -|  Initializing Servlet 'dispatcherServlet'
+2023-07-04 16:36:28.037 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [547] -|  Completed initialization in 10 ms
+2023-07-04 16:36:30.783 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 16:36:30
+2023-07-04 16:41:51.776 |-INFO  [Thread-8] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 16:41:51
+2023-07-04 16:41:51.776 |-INFO  [Thread-8] org.gracefulshutdown.hook.ControllerMonitorHook [35] -|  当前需进行等待
+2023-07-04 16:42:30.810 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 4764 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 16:42:30.816 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 16:42:32.014 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 16:42:32.022 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 16:42:32.023 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 16:42:32.023 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 16:42:32.136 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 16:42:32.137 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1251 ms
+2023-07-04 16:42:32.479 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 16:42:32.669 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 16:42:32.696 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 16:42:32.706 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.503 seconds (JVM running for 4.159)
+2023-07-04 16:42:36.615 |-INFO  [http-nio-8848-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 16:42:36.615 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [525] -|  Initializing Servlet 'dispatcherServlet'
+2023-07-04 16:42:36.624 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [547] -|  Completed initialization in 8 ms
+2023-07-04 16:42:39.499 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 16:42:39
+2023-07-04 16:46:33.839 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 16:46:33
+2023-07-04 16:54:24.043 |-INFO  [http-nio-8848-exec-2] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 16:54:24
+2023-07-04 16:55:08.032 |-INFO  [http-nio-8848-exec-2] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 16:55:08
+2023-07-04 16:55:18.436 |-INFO  [http-nio-8848-exec-3] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 16:55:18
+2023-07-04 16:57:06.133 |-INFO  [http-nio-8848-exec-3] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 16:57:06
+2023-07-04 16:57:41.655 |-INFO  [Thread-7] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 16:57:41
+2023-07-04 16:57:41.655 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 16:57:41
+2023-07-04 16:57:41.656 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 16:57:41
+2023-07-04 16:57:47.856 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 7820 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 16:57:47.862 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 16:57:49.340 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 16:57:49.354 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 16:57:49.356 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 16:57:49.357 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 16:57:49.508 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 16:57:49.509 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1574 ms
+2023-07-04 16:57:49.932 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 16:57:50.543 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 16:57:50.583 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 16:57:50.605 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 3.446 seconds (JVM running for 6.041)
+2023-07-04 16:57:53.035 |-INFO  [http-nio-8848-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 16:57:53.036 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [525] -|  Initializing Servlet 'dispatcherServlet'
+2023-07-04 16:57:53.048 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [547] -|  Completed initialization in 12 ms
+2023-07-04 16:57:54.938 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 16:57:54
+2023-07-04 16:58:20.283 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 16:58:20
+2023-07-04 17:00:45.507 |-INFO  [http-nio-8848-exec-2] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 17:00:45
+2023-07-04 17:00:56.650 |-INFO  [http-nio-8848-exec-2] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 17:00:56
+2023-07-04 17:01:03.206 |-INFO  [http-nio-8848-exec-4] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 17:01:03
+2023-07-04 17:07:01.154 |-INFO  [http-nio-8848-exec-4] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 17:07:01
+2023-07-04 17:07:01.191 |-INFO  [Thread-8] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 17:07:01
+2023-07-04 17:07:01.192 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 17:07:01
+2023-07-04 17:07:01.192 |-INFO  [Thread-7] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 17:07:01
+2023-07-04 17:08:54.330 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 15140 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 17:08:54.336 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 17:08:55.448 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 17:08:55.459 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 17:08:55.461 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 17:08:55.461 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 17:08:55.577 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 17:08:55.578 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1181 ms
+2023-07-04 17:08:55.653 |-WARN  [main] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [559] -|  Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shutdownTraceHelper': Invocation of init method failed; nested exception is java.lang.IllegalMonitorStateException
+2023-07-04 17:08:55.657 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Stopping service [Tomcat]
+2023-07-04 17:08:55.672 |-INFO  [main] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [136] -|  
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-07-04 17:08:55.872 |-ERROR [main] org.springframework.boot.SpringApplication [834] -|  Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shutdownTraceHelper': Invocation of init method failed; nested exception is java.lang.IllegalMonitorStateException
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1791)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:755)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:402)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1247)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1236)
+	at org.gracefulshutdown.GracefulShutdownApplication.main(GracefulShutdownApplication.java:10)
+Caused by: java.lang.IllegalMonitorStateException: null
+	at java.lang.Object.wait(Native Method)
+	at org.gracefulshutdown.business.ShutdownTraceHelper.getThreadTaskTrace(ShutdownTraceHelper.java:142)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:333)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:157)
+	... 19 common frames omitted
+2023-07-04 17:09:38.469 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 13148 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 17:09:38.474 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 17:09:40.471 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 17:09:40.490 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 17:09:40.492 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 17:09:40.493 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 17:09:40.651 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 17:09:40.652 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 2079 ms
+2023-07-04 17:10:51.585 |-WARN  [main] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [559] -|  Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shutdownTraceHelper': Invocation of init method failed; nested exception is java.lang.IllegalMonitorStateException
+2023-07-04 17:10:51.590 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Stopping service [Tomcat]
+2023-07-04 17:10:51.612 |-INFO  [main] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [136] -|  
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-07-04 17:12:31.415 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 19256 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 17:12:31.422 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 17:12:32.777 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 17:12:32.788 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 17:12:32.789 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 17:12:32.790 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 17:12:32.909 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 17:12:32.909 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1347 ms
+2023-07-04 17:12:33.013 |-WARN  [main] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [559] -|  Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shutdownTraceHelper': Invocation of init method failed; nested exception is java.lang.IllegalMonitorStateException
+2023-07-04 17:12:33.017 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Stopping service [Tomcat]
+2023-07-04 17:12:33.033 |-INFO  [main] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [136] -|  
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-07-04 17:12:33.062 |-ERROR [main] org.springframework.boot.SpringApplication [834] -|  Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shutdownTraceHelper': Invocation of init method failed; nested exception is java.lang.IllegalMonitorStateException
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1791)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:755)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:402)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1247)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1236)
+	at org.gracefulshutdown.GracefulShutdownApplication.main(GracefulShutdownApplication.java:10)
+Caused by: java.lang.IllegalMonitorStateException: null
+	at java.lang.Object.wait(Native Method)
+	at org.gracefulshutdown.business.ShutdownTraceHelper.getThreadTaskTrace(ShutdownTraceHelper.java:142)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:333)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:157)
+	... 19 common frames omitted
+2023-07-04 17:14:07.801 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 15352 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 17:14:07.809 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 17:14:09.344 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 17:14:09.356 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 17:14:09.357 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 17:14:09.358 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 17:14:09.460 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 17:14:09.460 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1570 ms
+2023-07-04 17:14:16.932 |-WARN  [main] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [559] -|  Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shutdownTraceHelper': Invocation of init method failed; nested exception is java.lang.IllegalMonitorStateException
+2023-07-04 17:14:16.942 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Stopping service [Tomcat]
+2023-07-04 17:14:16.972 |-INFO  [main] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [136] -|  
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-07-04 17:14:17.030 |-ERROR [main] org.springframework.boot.SpringApplication [834] -|  Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shutdownTraceHelper': Invocation of init method failed; nested exception is java.lang.IllegalMonitorStateException
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1791)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:755)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:402)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1247)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1236)
+	at org.gracefulshutdown.GracefulShutdownApplication.main(GracefulShutdownApplication.java:10)
+Caused by: java.lang.IllegalMonitorStateException: null
+	at java.lang.Object.wait(Native Method)
+	at org.gracefulshutdown.business.ShutdownTraceHelper.waitForProcessing(ShutdownTraceHelper.java:158)
+	at org.gracefulshutdown.business.ShutdownTraceHelper.getThreadTaskTrace(ShutdownTraceHelper.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:333)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:157)
+	... 19 common frames omitted
+2023-07-04 17:17:41.564 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 10408 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 17:17:41.570 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 17:17:42.822 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 17:17:42.832 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 17:17:42.834 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 17:17:42.835 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 17:17:42.944 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 17:17:42.945 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1301 ms
+2023-07-04 17:17:43.597 |-WARN  [main] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [559] -|  Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shutdownTraceHelper': Invocation of init method failed; nested exception is java.lang.IllegalMonitorStateException
+2023-07-04 17:17:43.601 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Stopping service [Tomcat]
+2023-07-04 17:17:43.615 |-INFO  [main] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [136] -|  
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-07-04 17:17:43.636 |-ERROR [main] org.springframework.boot.SpringApplication [834] -|  Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shutdownTraceHelper': Invocation of init method failed; nested exception is java.lang.IllegalMonitorStateException
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1791)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:755)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:402)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1247)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1236)
+	at org.gracefulshutdown.GracefulShutdownApplication.main(GracefulShutdownApplication.java:10)
+Caused by: java.lang.IllegalMonitorStateException: null
+	at java.lang.Object.wait(Native Method)
+	at org.gracefulshutdown.business.ShutdownTraceHelper.waitForProcessing(ShutdownTraceHelper.java:160)
+	at org.gracefulshutdown.business.ShutdownTraceHelper.getThreadTaskTrace(ShutdownTraceHelper.java:142)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:333)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:157)
+	... 19 common frames omitted
+2023-07-04 17:19:01.288 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 10292 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 17:19:01.293 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 17:19:03.435 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 17:19:03.456 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 17:19:03.457 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 17:19:03.458 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 17:19:03.609 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 17:19:03.609 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 2232 ms
+2023-07-04 17:19:07.522 |-WARN  [main] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [559] -|  Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shutdownTraceHelper': Invocation of init method failed; nested exception is java.lang.IllegalMonitorStateException
+2023-07-04 17:19:07.529 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Stopping service [Tomcat]
+2023-07-04 17:19:07.552 |-INFO  [main] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [136] -|  
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-07-04 17:19:07.580 |-ERROR [main] org.springframework.boot.SpringApplication [834] -|  Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shutdownTraceHelper': Invocation of init method failed; nested exception is java.lang.IllegalMonitorStateException
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1791)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:755)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:402)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1247)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1236)
+	at org.gracefulshutdown.GracefulShutdownApplication.main(GracefulShutdownApplication.java:10)
+Caused by: java.lang.IllegalMonitorStateException: null
+	at java.lang.Object.wait(Native Method)
+	at org.gracefulshutdown.business.ShutdownTraceHelper.getThreadTaskTrace(ShutdownTraceHelper.java:142)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:333)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:157)
+	... 19 common frames omitted
+2023-07-04 17:21:51.930 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 3656 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 17:21:51.935 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 17:21:53.128 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 17:21:53.137 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 17:21:53.138 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 17:21:53.138 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 17:21:53.257 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 17:21:53.257 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1240 ms
+2023-07-04 17:21:54.909 |-WARN  [main] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [559] -|  Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shutdownTraceHelper': Invocation of init method failed; nested exception is java.lang.IllegalMonitorStateException
+2023-07-04 17:21:54.915 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Stopping service [Tomcat]
+2023-07-04 17:21:54.930 |-INFO  [main] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [136] -|  
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-07-04 17:21:54.961 |-ERROR [main] org.springframework.boot.SpringApplication [834] -|  Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shutdownTraceHelper': Invocation of init method failed; nested exception is java.lang.IllegalMonitorStateException
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1791)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:755)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:402)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1247)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1236)
+	at org.gracefulshutdown.GracefulShutdownApplication.main(GracefulShutdownApplication.java:10)
+Caused by: java.lang.IllegalMonitorStateException: null
+	at java.lang.Object.wait(Native Method)
+	at org.gracefulshutdown.business.ShutdownTraceHelper.getThreadTaskTrace(ShutdownTraceHelper.java:143)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:333)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:157)
+	... 19 common frames omitted
+2023-07-04 17:22:25.582 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 21128 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 17:22:25.588 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 17:22:26.713 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 17:22:26.723 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 17:22:26.724 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 17:22:26.724 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 17:22:26.831 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 17:22:26.831 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1169 ms
+2023-07-04 17:23:27.163 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 17:23:27.364 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 17:23:27.395 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 17:23:27.405 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 62.487 seconds (JVM running for 63.987)
+2023-07-04 17:54:53.203 |-INFO  [Thread-123] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 17:54:53
+2023-07-04 17:54:53.203 |-INFO  [Thread-122] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 17:54:53
+2023-07-04 17:54:53.206 |-INFO  [Thread-122] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 17:54:53
+2023-07-04 17:59:45.091 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [55] -|  Starting GracefulShutdownApplication on DESKTOP-8P8SPK4 with PID 21136 (E:\IdeaProject\cqrcb\graceful-shutdown\target\classes started by MeiChuan in E:\IdeaProject\cqrcb\graceful-shutdown)
+2023-07-04 17:59:45.097 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [648] -|  No active profile set, falling back to default profiles: default
+2023-07-04 17:59:46.292 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [108] -|  Tomcat initialized with port(s): 8848 (http)
+2023-07-04 17:59:46.303 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Initializing ProtocolHandler ["http-nio-8848"]
+2023-07-04 17:59:46.305 |-INFO  [main] org.apache.catalina.core.StandardService [173] -|  Starting service [Tomcat]
+2023-07-04 17:59:46.305 |-INFO  [main] org.apache.catalina.core.StandardEngine [173] -|  Starting Servlet engine: [Apache Tomcat/9.0.46]
+2023-07-04 17:59:46.423 |-INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring embedded WebApplicationContext
+2023-07-04 17:59:46.424 |-INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [285] -|  Root WebApplicationContext: initialization completed in 1261 ms
+2023-07-04 17:59:46.750 |-INFO  [main] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [181] -|  Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-04 17:59:46.931 |-INFO  [main] org.apache.coyote.http11.Http11NioProtocol [173] -|  Starting ProtocolHandler ["http-nio-8848"]
+2023-07-04 17:59:46.955 |-INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [220] -|  Tomcat started on port(s): 8848 (http) with context path ''
+2023-07-04 17:59:46.966 |-INFO  [main] org.gracefulshutdown.GracefulShutdownApplication [61] -|  Started GracefulShutdownApplication in 2.5 seconds (JVM running for 3.987)
+2023-07-04 17:59:52.334 |-INFO  [http-nio-8848-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [173] -|  Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 17:59:52.335 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [525] -|  Initializing Servlet 'dispatcherServlet'
+2023-07-04 17:59:52.345 |-INFO  [http-nio-8848-exec-1] org.springframework.web.servlet.DispatcherServlet [547] -|  Completed initialization in 10 ms
+2023-07-04 17:59:54.291 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 17:59:54
+2023-07-04 18:00:08.708 |-INFO  [http-nio-8848-exec-1] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 18:00:08
+2023-07-04 18:02:16.960 |-INFO  [http-nio-8848-exec-2] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 18:02:16
+2023-07-04 18:02:28.971 |-INFO  [http-nio-8848-exec-2] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 18:02:28
+2023-07-04 18:02:38.369 |-INFO  [http-nio-8848-exec-4] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 18:02:38
+2023-07-04 18:02:51.397 |-INFO  [http-nio-8848-exec-4] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 18:02:51
+2023-07-04 18:05:55.522 |-INFO  [http-nio-8848-exec-6] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 18:05:55
+2023-07-04 18:06:29.647 |-INFO  [http-nio-8848-exec-6] org.gracefulshutdown.hook.AsncThreadMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：2023-07-04 18:06:29
+2023-07-04 18:20:29.814 |-INFO  [Thread-7] org.gracefulshutdown.hook.AsncThreadMonitorHook [34] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：2023-07-04 18:20:29
+2023-07-04 18:20:29.814 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [32] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机开始时间为：2023-07-04 18:20:29
+2023-07-04 18:20:29.814 |-INFO  [Thread-6] org.gracefulshutdown.hook.ControllerMonitorHook [39] -|  >>>>>>>>>>>>>>>>>>>>>>>>>>> 当前应用执行停机, 停机结束时间为：2023-07-04 18:20:29
+2023-07-04 18:20:30.368 |-INFO  [SpringContextShutdownHook] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [218] -|  Shutting down ExecutorService 'applicationTaskExecutor'

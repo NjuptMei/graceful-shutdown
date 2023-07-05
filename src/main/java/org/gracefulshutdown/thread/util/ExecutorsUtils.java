@@ -4,15 +4,15 @@ import org.gracefulshutdown.thread.ExcutorRejectThread;
 import org.gracefulshutdown.thread.ThreadConfig;
 import org.gracefulshutdown.thread.ThreadPoolMdcTrackTaskExcutor;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.TimeUnit;
+import java.util.Map;
+import java.util.concurrent.*;
 
 /**
  * 线程池工具类，默认核心线程数为10，
  */
 public class ExecutorsUtils {
+
+    private static final Map<Integer, ExecutorService> EXECUTOR_MAP = new ConcurrentHashMap<>();
 
     public static ExecutorService fastThreadPool() {
         return fastThreadPool(ThreadConfig.CORE_POOL_SIZE, ThreadConfig.FAST_QUEUE_SIZE);
@@ -25,10 +25,11 @@ public class ExecutorsUtils {
     }
 
     public static ExecutorService fastThreadPool(Integer coreSize, Integer queueSize) {
-        return new ThreadPoolMdcTrackTaskExcutor(ThreadConfig.CORE_POOL_SIZE, ThreadConfig.MAX_POOL_SIZE,
+        ExecutorService executorService= new ThreadPoolMdcTrackTaskExcutor(ThreadConfig.CORE_POOL_SIZE, ThreadConfig.MAX_POOL_SIZE,
                 ThreadConfig.KEEP_ALIVE_TIME, TimeUnit.SECONDS, new LinkedBlockingDeque<>(ThreadConfig.FAST_QUEUE_SIZE),
                 new NamedThreadFactory("快线程池fastThreadPool-线程thread-") {}, new ExcutorRejectThread() {});
-
+        EXECUTOR_MAP.put(executorService.hashCode(), executorService);
+        return executorService;
     }
 
     public static ExecutorService slowThreadPool() {
@@ -40,9 +41,11 @@ public class ExecutorsUtils {
     }
 
     public static ExecutorService slowThreadPool(Integer coreSize, Integer queueSize) {
-        return new ThreadPoolMdcTrackTaskExcutor(coreSize, ThreadConfig.MAX_POOL_SIZE,
+        ExecutorService executorService = new ThreadPoolMdcTrackTaskExcutor(coreSize, ThreadConfig.MAX_POOL_SIZE,
                 ThreadConfig.KEEP_ALIVE_TIME, TimeUnit.SECONDS, new LinkedBlockingDeque<>(queueSize),
                 new NamedThreadFactory("慢线程池slowThreadPool-线程thread-") {}, new ExcutorRejectThread() {});
+        EXECUTOR_MAP.put(executorService.hashCode(), executorService);
+        return executorService;
     }
 
     public static ExecutorService fixedThreadPool(Integer coreSize) {
@@ -50,19 +53,32 @@ public class ExecutorsUtils {
     }
 
     public static ExecutorService fixedThreadPool(Integer coreSize, Integer queueSize) {
-        return new ThreadPoolMdcTrackTaskExcutor(coreSize, ThreadConfig.MAX_POOL_SIZE,
+        ExecutorService executorService = new ThreadPoolMdcTrackTaskExcutor(coreSize, ThreadConfig.MAX_POOL_SIZE,
                 ThreadConfig.KEEP_ALIVE_TIME, TimeUnit.SECONDS, new LinkedBlockingDeque<>(queueSize),
                 new NamedThreadFactory("固定线程池fixedThreadPool-线程thread-") {}, new ExcutorRejectThread() {});
-
+        EXECUTOR_MAP.put(executorService.hashCode(), executorService);
+        return executorService;
     }
 
     public static ExecutorService newCachedThreadPool() {
-        return new ThreadPoolMdcTrackTaskExcutor(0, Integer.MAX_VALUE, ThreadConfig.KEEP_ALIVE_TIME, TimeUnit.SECONDS,
+        ExecutorService executorService = new ThreadPoolMdcTrackTaskExcutor(0, Integer.MAX_VALUE, ThreadConfig.KEEP_ALIVE_TIME, TimeUnit.SECONDS,
                 new SynchronousQueue<>(), new NamedThreadFactory("缓存线程池newCachedThreadPool-线程thread-") {});
+        EXECUTOR_MAP.put(executorService.hashCode(), executorService);
+        return executorService;
     }
 
     public static ExecutorService singleThreadPool() {
-        return new ThreadPoolMdcTrackTaskExcutor(1, 1, ThreadConfig.KEEP_ALIVE_TIME, TimeUnit.SECONDS,
+        ExecutorService executorService = new ThreadPoolMdcTrackTaskExcutor(1, 1, ThreadConfig.KEEP_ALIVE_TIME, TimeUnit.SECONDS,
                 new LinkedBlockingDeque<>(), new NamedThreadFactory("单线程池singleThreadPool-线程thread-") {});
+        EXECUTOR_MAP.put(executorService.hashCode(), executorService);
+        return executorService;
+    }
+
+    public static Map<Integer, ExecutorService> getExecutorInfoMap() {
+        return EXECUTOR_MAP;
+    }
+
+    public static void shutdownAll() {
+        EXECUTOR_MAP.values().forEach(ExecutorService::shutdown);
     }
 }

@@ -16,6 +16,7 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.stream.Collectors;
 
 /**
  * 针对异步线程、线程池等资源进行监控，需要保证在所有类加载完毕（spring对象、非spring对象）后执行监控初始化动作
@@ -43,36 +44,9 @@ public class AsyncThreadMonitor implements Runnable {
     public void run() {
         this.lock.lock();
         try {
-            Thread BB =  new Thread(
-                    () -> {
-                        for (int i = 0; i < 100; i++) {
-                            try {
-                                Thread.sleep(1000);
-                            } catch (InterruptedException e) {
-                                throw new RuntimeException(e);
-                            }
-                        }
-                    }, "测试NEW线程2222"
-            );
-            BB.start();
-            new TestNonymousThread().startRunner();
-            threadMXBean = ManagementFactory.getThreadMXBean();
-            ThreadInfo[] threadInfos = threadMXBean.getThreadInfo(threadMXBean.getAllThreadIds(), Integer.MAX_VALUE);
-            ThreadInfo[] threadInfos2 = threadMXBean.dumpAllThreads(false, false);
-            Map<Thread.State, List<ThreadInfo>> threadInfoMap = new HashMap<>();
-            Arrays.stream(threadInfos).forEach(t -> {
-                threadInfoMap.putIfAbsent(t.getThreadState(), new ArrayList<>());
-                threadInfoMap.get(t.getThreadState()).add(t);
-            });
-            for (ThreadInfo threadInfo : threadInfos) {
-                String threadName = threadInfo.getThreadName();
-                Thread.State threadState = threadInfo.getThreadState();
-                System.out.println("线程名称: " + threadName);
-                System.out.println("线程ID: " + threadInfo.getThreadId());
-                System.out.println("线程状态: " + threadState);
-            }
-            StopWatch watch = new StopWatch();
-            watch.start();
+            // 获取当前jvm线程状态
+            getJvmThreadStatus();
+
             CountDownLatch latch = new CountDownLatch(1);
             // 1. 线程池对象执行停机
             doExecutorShutdown(latch);
@@ -80,8 +54,12 @@ public class AsyncThreadMonitor implements Runnable {
             // 2. 线程对象执行等待
 
             // 3. 定时器处理
-
             latch.await(5, TimeUnit.MINUTES);
+            logger.info("异步线程池状态获取完成");
+            Thread.sleep(3000);
+            executorService.shutdown();
+            // 获取当前jvm线程状态
+            getJvmThreadStatus();
             Thread.sleep(10000L);
             this.condition.signal();
         } catch (Exception ee) {
@@ -99,28 +77,38 @@ public class AsyncThreadMonitor implements Runnable {
         AtomicBoolean running = new AtomicBoolean(true);
         executorService.scheduleAtFixedRate(() -> {
             long shutdownNum = ExecutorsUtils.getExecutorInfoMap().values().stream().filter(ExecutorService::isShutdown).count();
-            if (running.get() && ExecutorsUtils.getExecutorInfoMap().values().size() == shutdownNum) {running.set(false);
-                latch.countDown();
+            long activeNum = ExecutorsUtils.getExecutorInfoMap().values().stream().mapToInt(r -> {
+                if (r instanceof ThreadPoolExecutor) {
+                    ThreadPoolExecutor executor = (ThreadPoolExecutor) r;
+                    if (executor.getThreadFactory() instanceof NamedThreadFactory) {
+                        String threadName = ((NamedThreadFactory)executor.getThreadFactory()).getName();
+                        logger.info("当前运行线程为：{}，其活跃线程数为：{}", threadName, executor.getActiveCount());
+                    }
+                    return executor.getActiveCount();
+                }
+                return 0;
+            }).sum();
+            logger.info("当前线程池总数为：{}；关闭的线程池个数为：{}，处于运行中的线程个数为：{}",
+                    ExecutorsUtils.getExecutorInfoMap().values().size(), shutdownNum, activeNum);
+            if (running.get() && ExecutorsUtils.getExecutorInfoMap().values().size() <= shutdownNum && activeNum == 0) {
+                running.set(false);
                 watch.stop();
                 logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>> doExecutorShutdown 线程池完成停机，总计耗时：{}s >>>>>>>>>>>>>>>>>>>>>>>>>>>",
                         watch.getTotalTimeSeconds());
+                latch.countDown();
             }
         }, 5, 5, TimeUnit.SECONDS);
     }
 
-    @Component
-    class TestNonymousThread {
-        @PostConstruct
-        public void startRunner() {
-            new Thread(() -> {
-                for (int i = 0; i < 100; i++) {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }, "匿名内部类线程").start();
-        }
+    private static void getJvmThreadStatus() {
+        threadMXBean = ManagementFactory.getThreadMXBean();
+        ThreadInfo[] threadInfos = threadMXBean.getThreadInfo(threadMXBean.getAllThreadIds(), Integer.MAX_VALUE);
+        Map<Thread.State, List<ThreadInfo>> threadInfoMap = new HashMap<>();
+        Arrays.stream(threadInfos).forEach(t -> {
+            threadInfoMap.putIfAbsent(t.getThreadState(), new ArrayList<>());
+            threadInfoMap.get(t.getThreadState()).add(t);
+            logger.info("线程：{}", t.getThreadName());
+        });
+        threadInfoMap.forEach((k, v) -> logger.info("处于 {} 状态的线程数一共 {} 个", k.name(), v.size()));
     }
 }

@@ -2,12 +2,14 @@ package org.gracefulshutdown.hook;
 
 import org.gracefulshutdown.business.AsyncThreadMonitor;
 import org.gracefulshutdown.thread.util.ExecutorsUtils;
+import org.gracefulshutdown.thread.util.NamedThreadFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -33,7 +35,8 @@ public class AsncThreadMonitorHook extends Thread {
         try {
             logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook执行停机等待, 开始时间为：{}",
                     sdf.format(calendar.getTime()));
-            ExecutorsUtils.singleThreadPool().submit(new AsyncThreadMonitor(hookLock, hookCondition));
+            ExecutorService executorService = Executors.newFixedThreadPool(5, new NamedThreadFactory("线程优雅停机监测线程池"));
+            executorService.submit(new AsyncThreadMonitor(hookLock, hookCondition));
             hookCondition.await(120, TimeUnit.SECONDS);
             calendar.setTimeInMillis(System.currentTimeMillis());
             logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>> 异步线程AsyncThreadMonitorHook完成停机等待, 结束时间为：{}",

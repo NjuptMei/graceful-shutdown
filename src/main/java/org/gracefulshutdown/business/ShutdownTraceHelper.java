@@ -63,7 +63,7 @@ public class ShutdownTraceHelper {
         return runStatus;
     }
 
-    @PostConstruct
+    // @PostConstruct
     public void getThreadTaskTrace() throws InterruptedException {
         // 1. 带名称的Executor框架执行类
         ExecutorsUtils.singleThreadPool().submit(new Runnable() {

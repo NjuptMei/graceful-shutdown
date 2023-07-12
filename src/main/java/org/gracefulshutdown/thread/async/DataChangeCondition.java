@@ -26,7 +26,7 @@ public class DataChangeCondition {
 
     private static final Logger logger = LoggerFactory.getLogger(DataChangeCondition.class);
 
-    @PostConstruct
+    // @PostConstruct
     public void executeDataChange() {
         condition = lock.newCondition();
         ExecutorsUtils.singleThreadPool().execute(new Runnable() {

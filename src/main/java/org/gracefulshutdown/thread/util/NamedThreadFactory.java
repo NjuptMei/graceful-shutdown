@@ -35,5 +35,8 @@ public class NamedThreadFactory implements ThreadFactory {
         return new Thread(null, r, id.concat(" | ") + prefix + NamedThreadFactory.THREAD_NUMBER.getAndIncrement());
     }
 
+    public String getName() {
+        return id.concat(" | ") + prefix + NamedThreadFactory.THREAD_NUMBER.get();
+    }
 
 }

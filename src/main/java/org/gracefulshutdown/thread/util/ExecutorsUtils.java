@@ -32,7 +32,7 @@ public class ExecutorsUtils {
 
     public static ExecutorService fastThreadPool(Integer coreSize, Integer queueSize, String name) {
         ExecutorService executorService= new ThreadPoolMdcTrackTaskExcutor(ThreadConfig.CORE_POOL_SIZE, ThreadConfig.MAX_POOL_SIZE,
-                ThreadConfig.KEEP_ALIVE_TIME, TimeUnit.SECONDS, new LinkedBlockingDeque<>(ThreadConfig.FAST_QUEUE_SIZE),
+                30, TimeUnit.SECONDS, new LinkedBlockingDeque<>(ThreadConfig.FAST_QUEUE_SIZE),
                 new NamedThreadFactory(StringUtils.hasText(name) ? name : "快线程池fastThreadPool-线程thread-") {},
                 new ExcutorRejectThread() {});
         EXECUTOR_MAP.put(executorService.hashCode(), executorService);
@@ -106,5 +106,11 @@ public class ExecutorsUtils {
 
     public static void shutdownAll() {
         EXECUTOR_MAP.values().forEach(ExecutorService::shutdown);
+    }
+
+    public static void setAllowCoreThreadTimeout(ExecutorService executorService) {
+        if (executorService instanceof ThreadPoolExecutor) {
+            ((ThreadPoolExecutor)executorService).allowCoreThreadTimeOut(true);
+        }
     }
 }
